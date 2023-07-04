@@ -1,6 +1,10 @@
 package org.aluraconversor.ui;
 
+import org.aluraconversor.logica.ConversorMonedaLogica;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ConversorMoneda extends JFrame {
     private JRadioButton rbtnDolar;
@@ -32,6 +36,15 @@ public class ConversorMoneda extends JFrame {
     public ConversorMoneda(){
         super("Conversor de moneda ALURA");
         setContentPane(panelFirts);
+        convertirButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String valorAConvertir = txtfValorAConvertir.getText();
+                txtfValorDolar.setText(
+                        ConversorMonedaLogica.convertir(valorAConvertir,"0.5")
+                );
+            }
+        });
     }
 
 
