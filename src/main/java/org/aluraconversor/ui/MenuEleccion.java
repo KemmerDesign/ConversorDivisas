@@ -1,5 +1,6 @@
 package org.aluraconversor.ui;
 import javax.swing.*;
+import java.awt.*;
 
 public class MenuEleccion {
     private Object[] opciones ;
@@ -20,7 +21,9 @@ public class MenuEleccion {
                 @Override
                 public void run() {
                     JFrame frame = new ConversorMoneda();
-                    frame.setSize(591,360);
+                    Dimension maxSize = new Dimension(824,406);
+                    frame.setSize(823,405);
+                    frame.setMaximumSize(maxSize);
                     frame.setVisible(true);
                 }
             });
