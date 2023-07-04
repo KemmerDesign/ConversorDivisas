@@ -36,16 +36,49 @@ public class ConversorMoneda extends JFrame {
     public ConversorMoneda(){
         super("Conversor de moneda ALURA");
         setContentPane(panelFirts);
+        inicioTXTField();
         convertirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String valorAConvertir = txtfValorAConvertir.getText();
                 txtfValorDolar.setText(
-                        ConversorMonedaLogica.convertir(valorAConvertir,"0.5")
+                        enableTRM("USD",valorAConvertir,"4500",txtfTRMDolar);
+                );
+                txtfValorEuro.setText(
+                        "EUR "+ConversorMonedaLogica.convertir(valorAConvertir,"4500")
+                );
+                txtfValorLibra.setText(
+                        "LIBRA "+ConversorMonedaLogica.convertir(valorAConvertir, "5280")
+                );
+                txtfValorYen.setText(
+                        "YEN "+ConversorMonedaLogica.convertir(valorAConvertir,"28.77")
+                );
+                txtfValorWon.setText(
+                        "WON "+ConversorMonedaLogica.convertir(valorAConvertir,"3.21")
                 );
             }
         });
     }
-
+    public String enableTRM(String monedaAcronimo,JTextField valorConvertir,JTextField trmSistema,JRadioButton button, JTextField trmManual){
+        boolean isSelected = button.isSelected();
+        if(isSelected) {
+            trmManual.setEnabled(true);
+            return monedaAcronimo+ConversorMonedaLogica.convertir(
+                    valorConvertir.getText(),trmManual.getText()
+            );
+        }else{
+            trmManual.setEnabled(false);
+            return monedaAcronimo+ConversorMonedaLogica.convertir(
+                    valorConvertir.getText(),trmSistema.getText()
+            );
+        }
+    }
+    public void inicioTXTField(){
+        txtfTRMDolar.setEnabled(false);
+        txtfTRMEuro.setEnabled(false);
+        txtfTRMLibra.setEnabled(false);
+        txtfTRMYen.setEnabled(false);
+        txtfTRMWon.setEnabled(false);
+    }
 
 }

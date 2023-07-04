@@ -10,19 +10,19 @@ public class ConversorMonedaLogica {
         float valorTRMConversionF = 0f;
         float valorConvertido = 0f;
         String valorConvertidoS = "";
-        if (valorValidate || valorTRMValidate){
+        try{
             valorConvertirF = Float.parseFloat(valorConvertir);
             valorTRMConversionF = Float.parseFloat(trmConversion);
-            valorConvertido = valorConvertirF / valorTRMConversionF;
-            valorConvertidoS = String.valueOf(valorConvertido);
-        }else {
-            if (valorValidate != true){
-                JOptionPane.showMessageDialog(null,"El valor ingresado no es valido");
-            } else if (valorTRMValidate != true) {
-                JOptionPane.showMessageDialog(null,"El valor de la trm ingresado no es valido");
+            if(valorConvertirF <= 0 || valorTRMConversionF <= 0){
+                throw new ValorNegativo("Alguno de los valores es negativo o es igual a 0");
             }else{
-                JOptionPane.showMessageDialog(null,"Ninguno de los valores ingresados es valido");
+
+                valorConvertido = valorConvertirF / valorTRMConversionF;
+                valorConvertidoS = String.valueOf(valorConvertido);
             }
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
         }
         return valorConvertidoS;
     }

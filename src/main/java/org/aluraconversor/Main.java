@@ -12,6 +12,5 @@ public class Main {
         Object opciones[] = {"Conversor de moneda", "Conversor de temperatura"};
         MenuEleccion menu = new MenuEleccion(opciones,"Escoja lo que desea hacer","Conversor Alura");
 
-
     }
 }
