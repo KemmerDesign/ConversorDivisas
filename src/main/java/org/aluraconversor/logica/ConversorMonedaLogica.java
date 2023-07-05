@@ -5,11 +5,9 @@ import java.text.DecimalFormat;
 
 public class ConversorMonedaLogica {
     public static String convertirA(String valorConvertir, String trmConversion){
-        boolean valorValidate = esFloat(valorConvertir);
-        boolean valorTRMValidate = esFloat(trmConversion);
-        float valorConvertirF = 0f;
-        float valorTRMConversionF = 0f;
-        float valorConvertido = 0f;
+        float valorConvertirF;
+        float valorTRMConversionF;
+        float valorConvertido;
         String valorConvertidoS = "";
         try{
             valorConvertirF = Float.parseFloat(valorConvertir);
@@ -28,11 +26,9 @@ public class ConversorMonedaLogica {
         return valorConvertidoS;
     }
     public static String convertirB(String valorConvertir, String trmConversion){
-        boolean valorValidate = esFloat(valorConvertir);
-        boolean valorTRMValidate = esFloat(trmConversion);
-        float valorConvertirF = 0f;
-        float valorTRMConversionF = 0f;
-        float valorConvertido = 0f;
+        float valorConvertirF;
+        float valorTRMConversionF;
+        float valorConvertido;
         String valorConvertidoS = "";
         try{
             valorConvertirF = Float.parseFloat(valorConvertir);
@@ -53,12 +49,5 @@ public class ConversorMonedaLogica {
         }
         return valorConvertidoS;
     }
-    public static boolean esFloat(String texto){
-        try {
-            Float.parseFloat(texto);
-            return true;
-        }catch (NumberFormatException e){
-            return false;
-        }
-    }
+
 }
