@@ -27,6 +27,18 @@ public class MenuEleccion {
                     frame.setVisible(true);
                 }
             });
+        }else if(opcion.equals("Conversor de temperatura")){
+            SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run(){
+                JFrame frame = new ConversorTemperatura();
+                Dimension maxSize = new Dimension(809,256);
+                frame.setSize(808,254);
+                frame.setMaximumSize(maxSize);
+                frame.setVisible(true);
+            }
+            });
+
         }
     }
 
