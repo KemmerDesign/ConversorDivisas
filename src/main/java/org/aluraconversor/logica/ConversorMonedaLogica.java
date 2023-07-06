@@ -3,7 +3,21 @@ package org.aluraconversor.logica;
 import javax.swing.*;
 import java.text.DecimalFormat;
 
+/**
+ * Es una clase con 2 metodos que busca generar la conversion de la moneda.
+ * @version 1.0
+ * @author kemmeralexandertorresgomez
+ */
 public class ConversorMonedaLogica {
+    /**
+     * El metodo convertirA convierte la moneda local a la moneda que se desea
+     * cambiar, tambien maneja excepciones en el caso que se ingresen caracteres
+     * que no puedan ser convertidos a (float), tambien en el caso en el que se
+     * ingresen valores negativos o vacios.
+     * @param valorConvertir
+     * @param trmConversion
+     * @return
+     */
     public static String convertirA(String valorConvertir, String trmConversion){
         float valorConvertirF;
         float valorTRMConversionF;
@@ -25,6 +39,14 @@ public class ConversorMonedaLogica {
         }
         return valorConvertidoS;
     }
+
+    /**
+     * El metodo convertirB busca convertir una moneda extranjera a la moneda local, como en el caso del
+     * metodo convertirA se manejan excepciones en los mismos casos.
+     * @param valorConvertir
+     * @param trmConversion
+     * @return
+     */
     public static String convertirB(String valorConvertir, String trmConversion){
         float valorConvertirF;
         float valorTRMConversionF;

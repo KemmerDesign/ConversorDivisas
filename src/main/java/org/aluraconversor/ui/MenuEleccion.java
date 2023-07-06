@@ -7,6 +7,12 @@ public class MenuEleccion {
     private String accion ;
     private String tituloMenu;
 
+    /**
+     * Constructor del menu inicial de la clase.
+     * @param opciones
+     * @param accion
+     * @param tituloMenu
+     */
     public MenuEleccion(Object[] opciones, String accion, String tituloMenu) {
         this.opciones = opciones;
         this.accion = accion;
